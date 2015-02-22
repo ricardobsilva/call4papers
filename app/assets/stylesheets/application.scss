@@ -32,6 +32,9 @@ body {
 	color: #fff;
 }
 
+.base-color .navbar-nav a, .base-color a.navbar-brand, .base-color a.navbar-brand:hover {
+	color: #000;
+}
 
 .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
 	background: #2c3e50;
