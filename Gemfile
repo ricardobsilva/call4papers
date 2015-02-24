@@ -30,6 +30,7 @@ gem 'omniauth-twitter'
 gem 'pundit'
 gem 'simple_form'
 gem 'devise'
+gem 'carrierwave'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
