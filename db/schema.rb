@@ -24,6 +24,8 @@ ActiveRecord::Schema.define(version: 20150224192854) do
     t.datetime "updated_at",  null: false
   end
 
+  add_index "event_sections", ["event_id"], name: "index_event_sections_on_event_id", using: :btree
+
   create_table "events", force: :cascade do |t|
     t.string   "name"
     t.text     "description"

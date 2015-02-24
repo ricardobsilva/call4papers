@@ -3,7 +3,7 @@ class CreateEventSections < ActiveRecord::Migration
     create_table :event_sections do |t|
       t.string :name
       t.text :description
-      t.belongs_to :event
+      t.belongs_to :event, index: true
 
       t.timestamps null: false
     end
