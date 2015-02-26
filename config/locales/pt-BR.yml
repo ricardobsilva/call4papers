@@ -1,0 +1,8 @@
+pt-BR:
+  devise:
+    log_in: Entrar
+    sign_up: Cadastrar-se
+    forgot_your_password: Esqueceu sua senha?
+    did_not_recieve_confirmation: Não recebeu as informações de confirmação?
+    did_not_recieve_unlock: Não recebeu as informações de liberação?
+    sign_in_omniauth: Entrar com %{provider}

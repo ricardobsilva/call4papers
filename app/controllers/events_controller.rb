@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
-  before_action :set_event, only: [:edit, :update, :destroy]
-  before_action :authenticate_user!, except: :index
+  before_action :set_event, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:index, :show]
 
   def index
     @events = Event.all
@@ -13,12 +13,15 @@ class EventsController < ApplicationController
   def edit
   end
 
+  def show
+  end
+
   def create
     @event = Event.new(event_params)
     @event.user = current_user
 
     if @event.save
-      redirect_to my_events_path, notice: 'Event was successfuly created.'
+      redirect_to event_event_sections_path(@event), notice: 'Event was successfuly created.'
     else
       render :new
     end

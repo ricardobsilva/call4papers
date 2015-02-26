@@ -1,0 +1,29 @@
+<div class="page-header">
+  <h1><%=@event.name%> - Event Sections</h1>
+</div>
+
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Updated At</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @event_sections.each do |event_section| %>
+      <tr>
+        <td><%= event_section.name %></td>
+        <td><%= event_section.updated_at %></td>
+        <td><%= link_to edit_event_event_section_path(@event, event_section) do %><span class="glyphicon glyphicon-edit" aria-hidden="true"></span><%end%></td>
+        <td><%= link_to event_event_section_path(@event, event_section), method: :delete, data: { confirm: 'Are you sure?' } do %><span class="glyphicon glyphicon-remove" aria-hidden="true"></span><%end%></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Event Section', new_event_event_section_path(@event), class: "btn btn-primary" %>
+<%= link_to 'Back to Events', my_events_path, class: "btn btn-default" %>

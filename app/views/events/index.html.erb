@@ -2,27 +2,15 @@
   <h1>Events</h1>
 </div>
 
-<table class="table table-bordered table-striped">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Updated At</th>
-      <th colspan="2"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @events.each do |event| %>
-      <tr>
-        <td><%= event.name %></td>
-        <td><%= event.updated_at %></td>
-        <td><%= link_to edit_event_path(event) do %><span class="glyphicon glyphicon-edit" aria-hidden="true"></span><%end%></td>
-        <td><%= link_to event_path(event), method: :delete, data: { confirm: 'Are you sure?' } do %><span class="glyphicon glyphicon-remove" aria-hidden="true"></span><%end%></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Event', new_event_path, class: "btn btn-primary" %>
+<div class="row">
+  <%@events.each do |event|%>
+    <div class="col-md-3">
+      <div class="thumbnail">
+        <%=link_to event_path(event) do%><%=image_tag event.logo.url %><%end%>
+        <div class="caption">
+          <h4><%=event.name%></h4>
+        </div>
+      </div>
+    </div>
+  <%end%>
+</div>
