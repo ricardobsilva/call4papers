@@ -7,7 +7,7 @@ class EventsController < ApplicationController
   end
 
   def new
-    @event = Event.new
+    @event = current_user.events.new
   end
 
   def edit
@@ -17,8 +17,7 @@ class EventsController < ApplicationController
   end
 
   def create
-    @event = Event.new(event_params)
-    @event.user = current_user
+    @event = current_user.events.new(event_params)
 
     if @event.save
       redirect_to event_event_sections_path(@event), notice: 'Event was successfuly created.'
@@ -41,12 +40,12 @@ class EventsController < ApplicationController
   end
 
   def my
-    @events = Event.where(user: current_user)
+    @events = current_user.events
   end
 
   private
   def set_event
-    @event = Event.find(params[:id])
+    @event = current_user.events.find(params[:id])
   end
 
   def event_params

@@ -45,7 +45,7 @@ class EventSectionsController < SecuredController
   end
 
   def set_event_section
-    @event = @event.event_sections.find(params[:id])
+    @event_section = @event.event_sections.find(params[:id])
   end
 
   def event_params
