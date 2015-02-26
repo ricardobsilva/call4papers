@@ -1,0 +1,16 @@
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= simple_form_for(@event) do |f| %>
+      <%= f.error_notification %>
+
+      <%= f.input :name %>
+      <%= f.input :description %>
+      <%= f.input :date %>
+      <%= f.input :url %>
+      <%= f.input :logo %>
+
+      <%= f.button :submit, class: "btn btn-primary" %>
+      <%= link_to 'Back', my_events_path, class: "btn btn-default pull-right" %>
+    <% end %>
+  </div>
+</div>
