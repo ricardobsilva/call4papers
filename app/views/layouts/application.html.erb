@@ -11,8 +11,8 @@
     <title>Call4papers</title>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-	<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-	<%= csrf_meta_tags %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -33,28 +33,11 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Call4papers</a>
+          <%=link_to "Call4papers", root_url, class: "navbar-brand"%>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
-          <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Home</a></li>
-            <li><a href="#about">Eventos</a></li>
-            <li><a href="#contact">Contato</a></li>
-
-          </ul>
-          <ul class="nav navbar-nav navbar-right">
-            <li><a href="../navbar/">Login</a></li>
-
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Ivan Santos <span class="caret"></span></a>
-              <ul class="dropdown-menu" role="menu">
-                <li><a href="#">Perfil</a></li>
-                <li class="divider"></li>
-                <li class="dropdown-header">Sessão</li>
-                <li><a href="#">Logout</a></li>
-              </ul>
-            </li>
-          </ul>
+          <%=render_navigation expand_all: true, context: :primary%>
+          <%=render_navigation expand_all: true, context: :right%>
         </div><!--/.nav-collapse -->
       </div>
     </nav>
@@ -62,29 +45,7 @@
 
     <div class="container theme-showcase" role="main">
 
-      <!-- Main component for a primary marketing message or call to action -->
-      <div class="jumbotron">
-        <h1>Call4papers</h1>
-        <p>Protótipo de call4papers para Alagoas Dev Day</p>
-      </div>
-
-      <div class="row">
-        <div class="col-md-4">
-          <h2>LIGHTNING TALK - FRONT-END</h2>
-          <p>É um ninja front-end? Come HTML, CSS e JS com farinha? Quer falar sobre código, processos ou sua experiência? Manda ver!</p>
-          <p><a class="btn btn-default" href="#" role="button">View details »</a></p>
-        </div>
-        <div class="col-md-4">
-          <h2>LIGHTNING TALK - BACK-END</h2>
-          <p>Expresse seu código com palavras. Melhorias de código, ferramentas ou qualquer processo para um programador.</p>
-          <p><a class="btn btn-default" href="#" role="button">View details »</a></p>
-       </div>
-        <div class="col-md-4">
-          <h2>LIGHTNING TALK - DESIGN</h2>
-          <p>Design centrado ao código. Mostre sua ideia de como um bom design pode transformar produtos e códigos.</p>
-          <p><a class="btn btn-default" href="#" role="button">View details »</a></p>
-        </div>
-      </div>
+      <%=yield%>
 
     </div> <!-- /container -->
 

@@ -31,6 +31,9 @@ gem 'pundit'
 gem 'simple_form'
 gem 'devise'
 gem 'carrierwave'
+gem 'simple-navigation'
+gem 'simple-navigation-bootstrap'
+gem 'simple_navigation_renderers'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

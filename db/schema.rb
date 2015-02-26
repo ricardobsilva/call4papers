@@ -64,6 +64,7 @@ ActiveRecord::Schema.define(version: 20150224194232) do
   add_index "proposals", ["user_id"], name: "index_proposals_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
+    t.string   "name"
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"
