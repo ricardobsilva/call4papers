@@ -15,7 +15,7 @@
     <% @events.each do |event| %>
       <tr>
         <td><%= event.name %></td>
-        <td><%= event.updated_at %></td>
+        <td><%= l event.updated_at, format: :long %></td>
         <td><%= link_to edit_event_path(event) do %><span class="glyphicon glyphicon-edit" aria-hidden="true"></span><%end%></td>
         <td><%= link_to event_event_sections_path(event) do %><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span><%end%></td>
         <td><%= link_to event_path(event), method: :delete, data: { confirm: 'Are you sure?' } do %><span class="glyphicon glyphicon-remove" aria-hidden="true"></span><%end%></td>

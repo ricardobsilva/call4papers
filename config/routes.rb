@@ -7,7 +7,11 @@ Rails.application.routes.draw do
     collection do
       get "my", to: "events#my", as: :my
     end
-    resources :event_sections
+    resources :event_sections do
+      resources :proposals do
+        resources :ratings, only: [:create]
+      end
+    end
   end
   # get "events", to: "events#index", as: :events
   get "contact", to: "home#contact", as: :contact

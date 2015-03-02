@@ -1,0 +1,28 @@
+<div class="page-header">
+  <h1><%=@event.name%> - <%=@event_section.name%> - Proposals</h1>
+</div>
+
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Updated At</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @proposals.each do |proposal| %>
+      <tr>
+        <td><%= proposal.name %></td>
+        <td><%= proposal.updated_at %></td>
+        <td><%= link_to edit_event_proposal_path(@event, proposal) do %><span class="glyphicon glyphicon-edit" aria-hidden="true"></span><%end%></td>
+        <td><%= link_to event_proposal_path(@event, proposal), method: :delete, data: { confirm: 'Are you sure?' } do %><span class="glyphicon glyphicon-remove" aria-hidden="true"></span><%end%></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to "Back to #{@event.name}", event_path(@event), class: "btn btn-default" %>

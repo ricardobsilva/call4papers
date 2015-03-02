@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150224194232) do
+ActiveRecord::Schema.define(version: 20150302225452) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 20150224194232) do
 
   create_table "event_sections", force: :cascade do |t|
     t.string   "name"
+    t.string   "slug"
     t.text     "description"
     t.integer  "event_id"
     t.datetime "created_at",  null: false
@@ -39,6 +40,7 @@ ActiveRecord::Schema.define(version: 20150224194232) do
 
   create_table "events", force: :cascade do |t|
     t.string   "name"
+    t.string   "slug"
     t.text     "description"
     t.date     "date"
     t.string   "url"
@@ -52,19 +54,32 @@ ActiveRecord::Schema.define(version: 20150224194232) do
 
   create_table "proposals", force: :cascade do |t|
     t.string   "title"
+    t.string   "slug"
     t.text     "public_description"
     t.text     "private_description"
     t.integer  "event_section_id"
     t.integer  "user_id"
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
+    t.integer  "ratings_count",       default: 0
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
   end
 
   add_index "proposals", ["event_section_id"], name: "index_proposals_on_event_section_id", using: :btree
   add_index "proposals", ["user_id"], name: "index_proposals_on_user_id", using: :btree
 
+  create_table "ratings", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "proposal_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "ratings", ["proposal_id"], name: "index_ratings_on_proposal_id", using: :btree
+  add_index "ratings", ["user_id"], name: "index_ratings_on_user_id", using: :btree
+
   create_table "users", force: :cascade do |t|
     t.string   "name"
+    t.string   "slug"
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"
@@ -88,4 +103,6 @@ ActiveRecord::Schema.define(version: 20150224194232) do
   add_foreign_key "events", "users"
   add_foreign_key "proposals", "event_sections"
   add_foreign_key "proposals", "users"
+  add_foreign_key "ratings", "proposals"
+  add_foreign_key "ratings", "users"
 end

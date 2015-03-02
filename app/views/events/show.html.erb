@@ -17,5 +17,42 @@
   </div>
   <div class="col-md-8">
     <h1>Proposals</h1>
+    <%@event.event_sections.each do |event_section|%>
+      <div class="panel panel-info">
+        <div class="panel-heading">
+          <h3 class="panel-title"><%=event_section.name%></h3>
+        </div>
+        <div class="panel-body">
+          <%event_section.proposals.each do |proposal|%>
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <%=link_to event_event_section_proposal_ratings_path(@event, event_section, proposal), method: :post, class: "pull-right" do %><%=pluralize proposal.ratings.size, 'vote'%> <span class="glyphicon glyphicon-thumbs-up"></span><%end%>
+                <h3 class="panel-title"><%=proposal.title%></h3>
+              </div>
+              <div class="panel-body">
+                <p><%=proposal.public_description%></p>
+                <p class="pull-right">By: <%=proposal.user.name%></p>
+              </div>
+            </div>
+          <%end%>
+        </div>
+        <div class="panel-footer"><%=link_to "Submit your proposal to #{event_section.name}", new_event_event_section_proposal_path(@event, event_section)%></div>
+      </div>
+    <%end%>
+    <h1>Submit your Proposal</h1>
+    <div class="row">
+      <%@event.event_sections.each do |event_section|%>
+        <div class="col-md-4">
+          <div class="panel panel-info">
+            <div class="panel-heading">
+              <h3 class="panel-title"><%=link_to event_section.name, new_event_event_section_proposal_path(@event, event_section)%></h3>
+            </div>
+            <div class="panel-body">
+              <p><%=event_section.description%></p>
+            </div>
+          </div>
+        </div>
+      <%end%>
+    </div>
   </div>
 </div>

@@ -35,6 +35,7 @@ gem 'simple-navigation'
 gem 'simple-navigation-bootstrap'
 gem 'simple_navigation_renderers'
 gem 'rails-env'
+gem 'friendly_id', '~> 5.1.0'
 
 # i18n
 gem 'rails-i18n', '~> 4.0.0'
