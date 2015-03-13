@@ -10,33 +10,8 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require_tree .
- *= require_self
  */
 
-
-@import "bootstrap-sprockets";
 @import "bootstrap";
-
-body {
-  padding-top: 70px;
-}
-.base-color {
-	background: #16a085; 
-	.navbar-nav a, a.navbar-brand , a.navbar-brand:hover {
-		color: #fff;
-	}
-}
-
-.navbar-default .navbar-nav > li > a {
-	color: #fff;
-}
-
-.base-color .navbar-nav a, .base-color a.navbar-brand, .base-color a.navbar-brand:hover {
-	color: #000;
-}
-
-.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
-	background: #2c3e50;
-	color: #fff;
-}
+@import "flat-ui";
+@import "demo";

@@ -15,4 +15,8 @@ class Proposal < ActiveRecord::Base
   validates :private_description, presence: true
   validates :event_section, presence: true
   validates :user, presence: true
+
+  def percentage
+    self.ratings_count.to_f / self.event_section.total_ratings * 100
+  end
 end

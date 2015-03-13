@@ -7,4 +7,8 @@ class EventSection < ActiveRecord::Base
   has_many :proposals, dependent: :destroy
 
   validates :name, presence: true
+
+  def total_ratings
+    self.proposals.reduce(0) {|sum, proposal| sum + proposal.ratings_count}
+  end
 end
