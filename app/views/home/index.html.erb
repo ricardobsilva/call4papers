@@ -1,23 +1,39 @@
-<!-- Main component for a primary marketing message or call to action -->
-<div class="jumbotron">
-  <h1>Call4papers</h1>
-  <p>Protótipo de call4papers para Alagoas Dev Day</p>
-</div>
-
 <div class="row">
-  <div class="col-md-4">
-    <h2>LIGHTNING TALK - FRONT-END</h2>
-    <p>É um ninja front-end? Come HTML, CSS e JS com farinha? Quer falar sobre código, processos ou sua experiência? Manda ver!</p>
-    <p><a class="btn btn-default" href="#" role="button">View details »</a></p>
+  <div class="col-md-4 logo--add">
+    <img class="img-responsive img-rounded" src="<%=@event.logo.url%>" alt="">
   </div>
-  <div class="col-md-4">
-    <h2>LIGHTNING TALK - BACK-END</h2>
-    <p>Expresse seu código com palavras. Melhorias de código, ferramentas ou qualquer processo para um programador.</p>
-    <p><a class="btn btn-default" href="#" role="button">View details »</a></p>
- </div>
-  <div class="col-md-4">
-    <h2>LIGHTNING TALK - DESIGN</h2>
-    <p>Design centrado ao código. Mostre sua ideia de como um bom design pode transformar produtos e códigos.</p>
-    <p><a class="btn btn-default" href="#" role="button">View details »</a></p>
+  <div class="col-xs-8 content--custom">
+
+    <div class="page-header">
+      <h1><span class="fui-mic"></span> Lightning Talks</h1>
+    </div>
+
+    <p>Você pode participar do Alagoas Dev Day com um Lightning Talk de 20 minutos. Serão 03 ideias escolhidas por voto popular. Os Lightning Talks foram divididos em 03 categorias (front-end, back-end e design) Submeta sua ideia e fique na torcida.</p>
+    <!-- <a href="" class="btn btn-warning btn-lg">Cadastrar uma Palestra</a> -->
+
+    <div class="row demo-row">
+      <div class="col-xs-6">
+        <%=link_to event_path(@event), class: "btn btn-lg btn-block btn-inverse" do %><span class="fui-eye"></span> Ver Palestras Cadastradas<%end%>
+      </div>
+      <div class="col-xs-6">
+        <div class="dropdown">
+          <button class="btn btn-lg btn-warning btn-block dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+            <span class="fui-new"></span>
+            Cadastrar uma Palestra
+            <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+            <%@event.event_sections.each do |event_section|%>
+              <li role="presentation"><%=link_to event_section.name, event_path(@event, anchor: "event_#{dom_id(event_section)}"), role: "menuitem", tabindex: "-1" %></li>
+            <%end%>
+          </ul>
+        </div>
+      </div>
+    </div> <!-- /row -->
+
+
+
+
+
   </div>
 </div>

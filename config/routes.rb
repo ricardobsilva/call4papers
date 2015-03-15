@@ -3,12 +3,12 @@ Rails.application.routes.draw do
 
   devise_for :users
 
-  resources :events do
-    collection do
-      get "my", to: "events#my", as: :my
-    end
-    resources :event_sections do
-      resources :proposals do
+  resources :events, only: [:index, :show] do
+    # collection do
+    #   get "my", to: "events#my", as: :my
+    # end
+    resources :event_sections, only: :index do
+      resources :proposals, only: [:new, :create] do
         resources :ratings, only: [:create]
       end
     end

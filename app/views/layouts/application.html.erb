@@ -8,7 +8,7 @@
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
 
-    <title>Call4papers</title>
+    <title>Lightning Talks</title>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
@@ -22,7 +22,7 @@
     <![endif]-->
   </head>
 
-  <body role="document">
+  <body class="<%=@body_class%>" role="document">
 
     <!-- Fixed navbar -->
     <div class="row">
@@ -32,7 +32,7 @@
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
               <span class="sr-only">Toggle navigation</span>
             </button>
-            <%=link_to "Call4papers", root_url, class: "navbar-brand"%>
+            <%=link_to "Lightning Talks", root_url, class: "navbar-brand"%>
           </div>
           <div class="collapse navbar-collapse" id="navbar-collapse-01">
             <%=render_navigation expand_all: true, context: :primary%>

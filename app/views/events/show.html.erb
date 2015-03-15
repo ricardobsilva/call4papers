@@ -14,7 +14,7 @@
     <div class="event--info">
       <ul class="list-group">
         <li class="list-group-item">
-          <span class="fui-calendar"> <%=@event.date%></span>
+          <span class="fui-calendar"> <%=l @event.date%></span>
         </li>
         <li class="list-group-item">
           <span class="fui-link"> <%=link_to @event.url, @event.url, target: :blank%></span>
@@ -37,7 +37,7 @@
   </div>
   <div class="col-md-8">
     <%@event.event_sections.each do |event_section|%>
-      <div class="panel panel-primary">
+      <div id="event_<%=dom_id(event_section)%>" class="panel panel-primary">
         <div class="panel-heading">
           <div class="panel-title row">
             <div class="col-md-8 title--category-proposal" data-toggle="collapse" href="#<%=dom_id(event_section)%>" aria-expanded="false" aria-controls="<%=dom_id(event_section)%>">
