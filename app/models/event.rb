@@ -12,4 +12,8 @@ class Event < ActiveRecord::Base
   validates :logo, presence: true
 
   mount_uploader :logo, ImageUploader
+
+  def is_open?
+    Date.today <= end_date
+  end
 end

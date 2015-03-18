@@ -45,9 +45,11 @@
             </div>
 
             <div class="col-md-4">
-              <%=link_to new_event_event_section_proposal_path(@event, event_section) do%>
-                <span class="fui-upload"></span>
-                Envie sua proposta
+              <%if @event.is_open?%>
+                <%=link_to new_event_event_section_proposal_path(@event, event_section) do%>
+                  <span class="fui-upload"></span>
+                  Envie sua proposta
+                <%end%>
               <%end%>
             </div>
           </div>
@@ -59,7 +61,9 @@
                 <figure class="col-md-3">
                   <%=image_tag proposal.user.image_url, alt: proposal.user.name, class: "img-thumbnail"%>
                   <caption><small> <%=proposal.user.name%></small></caption>
-                  <%=link_to event_event_section_proposal_ratings_path(@event, event_section, proposal), method: :post, class: "btn btn-primary btn-lg" do %><span class="fui-heart"></span> Votar<%end%>
+                  <%if @event.is_open?%>
+                    <%=link_to event_event_section_proposal_ratings_path(@event, event_section, proposal), method: :post, class: "btn btn-primary btn-lg" do %><span class="fui-heart"></span> Votar<%end%>
+                  <%end%>
                 </figure>
 
                 <span class="col-md-9">
