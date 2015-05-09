@@ -5,3 +5,7 @@ before_script:
   - cp config/database.yml.travis config/database.yml
   - cp config/secrets.yml.travis config/secrets.yml
   - psql -c 'create database travis_ci_test;' -U postgres
+
+addons:
+  code_climate:
+    repo_token: c0b5f04b85e35af5c966438973361bf0e3326b4f34b53bb6c39438af1df6093c
