@@ -65,6 +65,7 @@ group :development, :test do
   gem 'pry-rescue'
   gem 'rspec-rails'
   gem 'rubocop'
+  gem "codeclimate-test-reporter"
 end
 
 group :production do
