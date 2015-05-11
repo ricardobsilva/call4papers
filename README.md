@@ -26,20 +26,6 @@ rake db:create
 rake db:migrate
 ```
 
-Your app should be ready to run. There's no data seed or admin views. In order to add data to your database, you should create Event and Participant objects on your console. To do this, just run the following commands:
-
-
-```
-rails console
-Event.create(name: "Event Name", location: "Event Place", start_date: Date.today, end_date: Date.today, workload: 8)
-participant = Participant.create(name: "John Doe", email: "john@example.com", participation_type: "Listener")
-participant.events << Event.first
-exit
-rails server
-```
-
-The go to your browser and load ```localhost:3000``` and search for ```john@example.com```. You should see the data you filled on console.
-
 To run the tests, just run ```rspec spec``` on your console.
 
 # Contributing
