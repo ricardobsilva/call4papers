@@ -8,13 +8,16 @@ class RatingsController < SecuredController
     @rating.user = current_user
 
     if @rating.save
-      redirect_to event_path(@event), notice: 'Vote successfully computed.'
+      redirect_to event_path(@event),
+                  notice: 'Vote successfully computed.'
     else
-      redirect_to event_path(@event), alert: @rating.errors.full_messages.join('<br>')
+      redirect_to event_path(@event),
+                  alert: @rating.errors.full_messages.join('<br>')
     end
   end
 
   private
+
   def set_event
     @event = Event.find(params[:event_id])
   end

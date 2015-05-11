@@ -9,6 +9,6 @@ class EventSection < ActiveRecord::Base
   validates :name, presence: true
 
   def total_ratings
-    self.proposals.reduce(0) {|sum, proposal| sum + proposal.ratings_count}
+    proposals.reduce(0) { |a, e| a + e.ratings_count }
   end
 end

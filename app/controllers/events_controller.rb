@@ -21,7 +21,8 @@ class EventsController < ApplicationController
     @event = current_user.events.new(event_params)
 
     if @event.save
-      redirect_to event_event_sections_path(@event), notice: 'Event was successfuly created.'
+      redirect_to event_event_sections_path(@event),
+                  notice: 'Event was successfuly created.'
     else
       render :new
     end
@@ -29,7 +30,8 @@ class EventsController < ApplicationController
 
   def update
     if @event.update(event_params)
-      redirect_to my_events_path, notice: 'Event was successfuly updated.'
+      redirect_to my_events_path,
+                  notice: 'Event was successfuly updated.'
     else
       render :edit
     end
@@ -37,7 +39,8 @@ class EventsController < ApplicationController
 
   def destroy
     @event.destroy
-    redirect_to my_events_path, notice: 'Event was successfuly destroyed.'
+    redirect_to my_events_path,
+                notice: 'Event was successfuly destroyed.'
   end
 
   def my
@@ -45,12 +48,19 @@ class EventsController < ApplicationController
   end
 
   private
+
   def set_event
     @event = current_user.events.find(params[:id])
   end
 
   def event_params
-    params.require(:event).permit(:name, :description, :date, :end_date, :url, :logo)
+    params.require(:event).permit(
+      :name,
+      :description,
+      :date,
+      :end_date,
+      :url,
+      :logo
+    )
   end
-
 end

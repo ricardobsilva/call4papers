@@ -2,7 +2,7 @@ class Proposal < ActiveRecord::Base
   extend FriendlyId
   friendly_id :title, use: :slugged
 
-  default_scope { order(ratings_count: :desc)}
+  default_scope { order(ratings_count: :desc) }
 
   belongs_to :event_section
   belongs_to :user
@@ -17,6 +17,6 @@ class Proposal < ActiveRecord::Base
   validates :user, presence: true
 
   def percentage
-    self.ratings_count.to_f / self.event_section.total_ratings * 100
+    ratings_count.to_f / event_section.total_ratings * 100
   end
 end

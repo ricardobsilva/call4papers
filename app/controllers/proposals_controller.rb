@@ -22,7 +22,8 @@ class ProposalsController < SecuredController
     @proposal.user = current_user
 
     if @proposal.save
-      redirect_to event_path(@event), notice: 'Proposal was successfuly created.'
+      redirect_to event_path(@event),
+                  notice: 'Proposal was successfuly created.'
     else
       render :new
     end
@@ -30,7 +31,8 @@ class ProposalsController < SecuredController
 
   def update
     if @proposal.update(event_params)
-      redirect_to event_path(@event), notice: 'Proposal was successfuly updated.'
+      redirect_to event_path(@event),
+                  notice: 'Proposal was successfuly updated.'
     else
       render :edit
     end
@@ -38,10 +40,12 @@ class ProposalsController < SecuredController
 
   def destroy
     @proposal.destroy
-    redirect_to my_events_path, notice: 'Proposal was successfuly destroyed.'
+    redirect_to my_events_path,
+                notice: 'Proposal was successfuly destroyed.'
   end
 
   private
+
   def set_event
     @event = Event.find(params[:event_id])
   end
@@ -55,6 +59,10 @@ class ProposalsController < SecuredController
   end
 
   def event_params
-    params.require(:proposal).permit(:title, :public_description, :private_description)
+    params.require(:proposal).permit(
+      :title,
+      :public_description,
+      :private_description
+    )
   end
 end

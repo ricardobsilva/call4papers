@@ -13,7 +13,7 @@ class Event < ActiveRecord::Base
 
   mount_uploader :logo, ImageUploader
 
-  def is_open?
+  def open?
     Date.today <= end_date
   end
 end

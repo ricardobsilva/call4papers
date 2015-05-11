@@ -20,7 +20,8 @@ class EventSectionsController < SecuredController
     @event_section = @event.event_sections.new(event_params)
 
     if @event_section.save
-      redirect_to event_event_sections_path(@event), notice: 'Event Section was successfuly created.'
+      redirect_to event_event_sections_path(@event),
+                  notice: 'Event Section was successfuly created.'
     else
       render :new
     end
@@ -28,7 +29,8 @@ class EventSectionsController < SecuredController
 
   def update
     if @event_section.update(event_params)
-      redirect_to event_event_sections_path(@event), notice: 'Event Section was successfuly updated.'
+      redirect_to event_event_sections_path(@event),
+                  notice: 'Event Section was successfuly updated.'
     else
       render :edit
     end
@@ -36,10 +38,12 @@ class EventSectionsController < SecuredController
 
   def destroy
     @event_section.destroy
-    redirect_to my_events_path, notice: 'Event Section was successfuly destroyed.'
+    redirect_to my_events_path,
+                notice: 'Event Section was successfuly destroyed.'
   end
 
   private
+
   def set_event
     @event = Event.find(params[:event_id])
   end
@@ -51,5 +55,4 @@ class EventSectionsController < SecuredController
   def event_params
     params.require(:event_section).permit(:name, :description)
   end
-
 end

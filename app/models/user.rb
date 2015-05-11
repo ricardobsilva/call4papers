@@ -13,6 +13,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   def image_url
-    "http://www.gravatar.com/avatar/#{Digest::MD5.hexdigest(email)}?s=97&d=#{[:mm, :wavatar, :retro, :monsterid, :identicon].sample}"
+    "http://www.gravatar.com/avatar/#{Digest::MD5.hexdigest(email)}?s=97&d=
+    #{[:mm, :wavatar, :retro, :monsterid, :identicon].sample}"
   end
 end
