@@ -70,6 +70,7 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'shoulda-matchers', require: false
   gem 'codeclimate-test-reporter'
+  gem 'sqlite3'
 end
 
 group :production do

@@ -13,9 +13,6 @@
 
 ActiveRecord::Schema.define(version: 20150318181116) do
 
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
   create_table "comments", force: :cascade do |t|
     t.text     "text"
     t.integer  "user_id"
@@ -24,8 +21,8 @@ ActiveRecord::Schema.define(version: 20150318181116) do
     t.datetime "updated_at",  null: false
   end
 
-  add_index "comments", ["proposal_id"], name: "index_comments_on_proposal_id", using: :btree
-  add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
+  add_index "comments", ["proposal_id"], name: "index_comments_on_proposal_id"
+  add_index "comments", ["user_id"], name: "index_comments_on_user_id"
 
   create_table "event_sections", force: :cascade do |t|
     t.string   "name"
@@ -36,7 +33,7 @@ ActiveRecord::Schema.define(version: 20150318181116) do
     t.datetime "updated_at",  null: false
   end
 
-  add_index "event_sections", ["event_id"], name: "index_event_sections_on_event_id", using: :btree
+  add_index "event_sections", ["event_id"], name: "index_event_sections_on_event_id"
 
   create_table "events", force: :cascade do |t|
     t.string   "name"
@@ -51,7 +48,7 @@ ActiveRecord::Schema.define(version: 20150318181116) do
     t.date     "end_date"
   end
 
-  add_index "events", ["user_id"], name: "index_events_on_user_id", using: :btree
+  add_index "events", ["user_id"], name: "index_events_on_user_id"
 
   create_table "proposals", force: :cascade do |t|
     t.string   "title"
@@ -65,8 +62,8 @@ ActiveRecord::Schema.define(version: 20150318181116) do
     t.datetime "updated_at",                      null: false
   end
 
-  add_index "proposals", ["event_section_id"], name: "index_proposals_on_event_section_id", using: :btree
-  add_index "proposals", ["user_id"], name: "index_proposals_on_user_id", using: :btree
+  add_index "proposals", ["event_section_id"], name: "index_proposals_on_event_section_id"
+  add_index "proposals", ["user_id"], name: "index_proposals_on_user_id"
 
   create_table "ratings", force: :cascade do |t|
     t.integer  "user_id"
@@ -75,8 +72,8 @@ ActiveRecord::Schema.define(version: 20150318181116) do
     t.datetime "updated_at",  null: false
   end
 
-  add_index "ratings", ["proposal_id"], name: "index_ratings_on_proposal_id", using: :btree
-  add_index "ratings", ["user_id"], name: "index_ratings_on_user_id", using: :btree
+  add_index "ratings", ["proposal_id"], name: "index_ratings_on_proposal_id"
+  add_index "ratings", ["user_id"], name: "index_ratings_on_user_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "name"
@@ -89,21 +86,13 @@ ActiveRecord::Schema.define(version: 20150318181116) do
     t.integer  "sign_in_count",          default: 0,  null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
-    t.inet     "current_sign_in_ip"
-    t.inet     "last_sign_in_ip"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+  add_index "users", ["email"], name: "index_users_on_email", unique: true
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
 
-  add_foreign_key "comments", "proposals"
-  add_foreign_key "comments", "users"
-  add_foreign_key "event_sections", "events"
-  add_foreign_key "events", "users"
-  add_foreign_key "proposals", "event_sections"
-  add_foreign_key "proposals", "users"
-  add_foreign_key "ratings", "proposals"
-  add_foreign_key "ratings", "users"
 end
