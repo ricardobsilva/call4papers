@@ -1,19 +1,19 @@
+<% @events.each do |event| %>
 <div class="row">
   <div class="col-md-4 logo--add">
-    <img class="img-responsive img-rounded" src="<%=@event.logo.url%>" alt="">
+    <img class="img-responsive img-rounded" src="<%=event.logo.url%>" alt="">
   </div>
   <div class="col-xs-8 content--custom">
 
     <div class="page-header">
-      <h1><span class="fui-mic"></span> Lightning Talks</h1>
+      <h1><span class="fui-mic"></span> <%= event.name %></h1>
     </div>
 
-    <p>Você pode participar do Alagoas Dev Day com um Lightning Talk de 20 minutos. Serão 03 ideias escolhidas por voto popular. Os Lightning Talks foram divididos em 03 categorias (front-end, back-end e design) Submeta sua ideia e fique na torcida.</p>
-    <!-- <a href="" class="btn btn-warning btn-lg">Cadastrar uma Palestra</a> -->
+    <%= simple_format(event.description) %>
 
     <div class="row demo-row">
       <div class="col-xs-6">
-        <%=link_to event_path(@event), class: "btn btn-lg btn-block btn-inverse" do %><span class="fui-eye"></span> Ver Palestras Cadastradas<%end%>
+        <%=link_to event_path(event), class: "btn btn-lg btn-block btn-inverse" do %><span class="fui-eye"></span> Ver Palestras Cadastradas<%end%>
       </div>
       <div class="col-xs-6">
         <div class="dropdown">
@@ -23,17 +23,13 @@
             <span class="caret"></span>
           </button>
           <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-            <%@event.event_sections.each do |event_section|%>
-              <li role="presentation"><%=link_to event_section.name, event_path(@event, anchor: "event_#{dom_id(event_section)}"), role: "menuitem", tabindex: "-1" %></li>
+            <%event.event_sections.each do |event_section|%>
+              <li role="presentation"><%=link_to event_section.name, event_path(event, anchor: "event_#{dom_id(event_section)}"), role: "menuitem", tabindex: "-1" %></li>
             <%end%>
           </ul>
         </div>
       </div>
     </div> <!-- /row -->
-
-
-
-
-
   </div>
 </div>
+<% end %>
