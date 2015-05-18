@@ -65,6 +65,7 @@ group :development, :test do
   gem 'pry-rails'
   gem 'pry-rescue'
   gem 'rspec-rails'
+  gem 'timecop'
   gem 'rubocop'
   gem 'simplecov', require: false
   gem 'database_cleaner'

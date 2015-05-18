@@ -9,7 +9,9 @@ class Event < ActiveRecord::Base
   validates :name, presence: true
   validates :description, presence: true
   validates :date, presence: true
+  validates :end_date, presence: true
   validates :logo, presence: true
+  validates :user, presence: true
 
   mount_uploader :logo, ImageUploader
 
