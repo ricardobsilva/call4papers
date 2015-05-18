@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :event_section do
-    event ''
-    name 'MyString'
-    description 'MyText'
+    name { Faker::Name.name }
+    description { Faker::Lorem.paragraphs(2) }
+    event
   end
 end
