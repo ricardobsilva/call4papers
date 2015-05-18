@@ -14,7 +14,7 @@ class Event < ActiveRecord::Base
   mount_uploader :logo, ImageUploader
 
   scope :latest, -> { where('created_at >= ?', 7.days.ago) }
-  scope :upcoming, -> { where('date <= ?', Date.today + 7) }
+  scope :upcoming, -> { where('date >= ? and date <= ?', Date.today, Date.today + 7) }
 
   def open?
     Date.today <= end_date
