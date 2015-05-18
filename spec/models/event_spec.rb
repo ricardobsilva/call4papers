@@ -62,7 +62,7 @@ RSpec.describe Event, type: :model do
     end
 
     after(:all) do
-      Event.all.each { |e| e.destroy }
+      Event.all.each(&:destroy)
       Timecop.return
     end
 

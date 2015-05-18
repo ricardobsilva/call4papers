@@ -26,7 +26,7 @@ RSpec.describe EventSection, type: :model do
     end
   end
 
-  describe "#total_ratings" do
-    pending "test #total_ratings method on EventSection"
+  describe '#total_ratings' do
+    pending 'test #total_ratings method on EventSection'
   end
 end
