@@ -4,6 +4,8 @@ RSpec.describe Proposal, type: :model do
   it { expect(subject).to validate_presence_of(:title) }
   it { expect(subject).to validate_presence_of(:public_description) }
   it { expect(subject).to validate_presence_of(:private_description) }
+  it { expect(subject).to validate_presence_of(:event_section) }
+  it { expect(subject).to validate_presence_of(:user) }
   it { expect(subject).to belong_to(:event_section) }
   it { expect(subject).to belong_to(:user) }
   it { expect(subject).to have_many(:comments).dependent(:destroy) }
