@@ -19,9 +19,9 @@ If you use RVM, make sure you have ruby 2.2.x installed. If so, when in the app 
 rvm rvmrc create ruby-2.2.x@call4papersapp --ruby-version
 rvm use ruby-2.2.x@call4papersapp
 bundle install
-cp config/database-example.yml config/database.yml
+cp config/database.yml.example config/database.yml
 -- (Config your database parameter on database.yml (if needed))
-cp config/secrets-example.yml config/secrets.yml
+cp config/secrets.yml.example config/secrets.yml
 rake db:create
 rake db:migrate
 ```
