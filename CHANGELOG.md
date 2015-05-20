@@ -1,5 +1,6 @@
 ### Unreleased
 
+* [#38](https://github.com/alagoasdevday/call4papers/pull/38): Fixes flash messages error #13 and #14 - [@gmmcal](https://github.com/gmmcal).
 * [#37](https://github.com/alagoasdevday/call4papers/pull/37): Add User model tests - [@gmmcal](https://github.com/gmmcal).
 * [#36](https://github.com/alagoasdevday/call4papers/pull/36): Sanitizing config filename - [@endersonmaia](https://github.com/endersonmaia).
 * [#34](https://github.com/alagoasdevday/call4papers/pull/34): Create tests for model Rating fixes #24 and closes #24 - [@gmmcal](https://github.com/gmmcal).
