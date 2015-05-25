@@ -1,7 +1,8 @@
 FactoryGirl.define do
   factory :comment do
-    text 'MyText'
-    user nil
-    proposal nil
+    text {Faker::Lorem.paragraphs(1)}
+    user 
+    proposal 
   end
 end
+
